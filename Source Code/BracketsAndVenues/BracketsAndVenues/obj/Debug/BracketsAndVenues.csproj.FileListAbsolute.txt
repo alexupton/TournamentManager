@@ -1,1 +1,2 @@
 c:\users\stiles bitchley\documents\visual studio 2012\Projects\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe.config
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe.config
