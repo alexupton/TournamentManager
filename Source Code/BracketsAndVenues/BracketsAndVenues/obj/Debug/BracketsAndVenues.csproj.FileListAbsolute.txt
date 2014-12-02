@@ -1,2 +1,10 @@
 c:\users\stiles bitchley\documents\visual studio 2012\Projects\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe.config
 D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe.config
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.csprojResolveAssemblyReference.cache
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.Form1.resources
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.Properties.Resources.resources
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.csproj.GenerateResource.Cache
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.pdb
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.exe
+D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.pdb
