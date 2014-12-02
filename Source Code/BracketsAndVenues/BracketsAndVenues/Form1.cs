@@ -46,6 +46,12 @@ namespace BracketsAndVenues
             saveToolStripMenuItem.Enabled = true;
             FilePath = load.FileName;
 
+            switch(lines.Length)
+            {
+                case 4: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\4_team_bracket.png"; break;
+                default: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\8_team_bracket.png"; break;
+        }
+
 
         }
 
@@ -53,10 +59,10 @@ namespace BracketsAndVenues
         {
             if (FilePath == "")
             {
-                Save(false);
+                Save(true);
             }
             else
-                Save(true);
+                Save(false);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,15 +74,19 @@ namespace BracketsAndVenues
             else
             {
                 
-               DialogResult saveOption = MessageBox.Show("Do you want to save first?,", "Exit", MessageBoxButtons.YesNo);
+               DialogResult saveOption = MessageBox.Show("Do you want to save first?", "Exit", MessageBoxButtons.YesNoCancel);
                if (saveOption == DialogResult.Yes)
                {
                    if (FilePath != "")
+                   {
                        Save(false);
+                   }
                    else
+                   {
                        Save(true);
+                   }
                }
-               else
+               else if(saveOption == DialogResult.No)
                {
                    this.Close();
                }
