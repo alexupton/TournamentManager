@@ -18,10 +18,13 @@ namespace BracketsAndVenues
             IsDirty = false;
             matchups = new List<Team[]>();
 
+            //LINQ to sort list by seed value
             var seedSortedList =
                 (from t in teams
                 select t).OrderBy(x => x.Seed);
             List<Team> sorted = seedSortedList.ToList();
+
+            //use the sorted list to pair every team with its nearest seed neighbor
             for(int i = 0; i < sorted.Count - 1; i +=2)
             {
                 matchups.Add(new Team[] { sorted.ElementAt(i), sorted.ElementAt(i + 1) });
