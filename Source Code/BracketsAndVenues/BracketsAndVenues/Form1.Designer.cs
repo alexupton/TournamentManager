@@ -37,6 +37,12 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MatchBox = new System.Windows.Forms.ComboBox();
+            this.EditLabel = new System.Windows.Forms.Label();
+            this.Team1Label = new System.Windows.Forms.Label();
+            this.Team1Win = new System.Windows.Forms.Button();
+            this.Team2Label = new System.Windows.Forms.Label();
+            this.Team2Win = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -96,25 +102,101 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(166, 24);
+            this.label1.Location = new System.Drawing.Point(317, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(144, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(880, 800);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // MatchBox
+            // 
+            this.MatchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MatchBox.FormattingEnabled = true;
+            this.MatchBox.Location = new System.Drawing.Point(884, 74);
+            this.MatchBox.Name = "MatchBox";
+            this.MatchBox.Size = new System.Drawing.Size(121, 21);
+            this.MatchBox.TabIndex = 4;
+            this.MatchBox.Visible = false;
+            this.MatchBox.SelectedIndexChanged += new System.EventHandler(this.MatchBox_SelectedIndexChanged);
+            // 
+            // EditLabel
+            // 
+            this.EditLabel.AutoSize = true;
+            this.EditLabel.Location = new System.Drawing.Point(820, 77);
+            this.EditLabel.Name = "EditLabel";
+            this.EditLabel.Size = new System.Drawing.Size(58, 13);
+            this.EditLabel.TabIndex = 5;
+            this.EditLabel.Text = "Edit Match";
+            this.EditLabel.Visible = false;
+            this.EditLabel.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // Team1Label
+            // 
+            this.Team1Label.AutoSize = true;
+            this.Team1Label.Location = new System.Drawing.Point(1021, 53);
+            this.Team1Label.Name = "Team1Label";
+            this.Team1Label.Size = new System.Drawing.Size(43, 13);
+            this.Team1Label.TabIndex = 6;
+            this.Team1Label.Text = "Team 1";
+            this.Team1Label.Visible = false;
+            this.Team1Label.Click += new System.EventHandler(this.label2_Click_2);
+            // 
+            // Team1Win
+            // 
+            this.Team1Win.Enabled = false;
+            this.Team1Win.Location = new System.Drawing.Point(1070, 48);
+            this.Team1Win.Name = "Team1Win";
+            this.Team1Win.Size = new System.Drawing.Size(75, 23);
+            this.Team1Win.TabIndex = 7;
+            this.Team1Win.Text = "Win";
+            this.Team1Win.UseVisualStyleBackColor = true;
+            this.Team1Win.Visible = false;
+            this.Team1Win.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // Team2Label
+            // 
+            this.Team2Label.AutoSize = true;
+            this.Team2Label.Location = new System.Drawing.Point(1021, 101);
+            this.Team2Label.Name = "Team2Label";
+            this.Team2Label.Size = new System.Drawing.Size(43, 13);
+            this.Team2Label.TabIndex = 8;
+            this.Team2Label.Text = "Team 2";
+            this.Team2Label.Visible = false;
+            // 
+            // Team2Win
+            // 
+            this.Team2Win.Enabled = false;
+            this.Team2Win.Location = new System.Drawing.Point(1070, 96);
+            this.Team2Win.Name = "Team2Win";
+            this.Team2Win.Size = new System.Drawing.Size(75, 23);
+            this.Team2Win.TabIndex = 9;
+            this.Team2Win.Text = "Win";
+            this.Team2Win.UseVisualStyleBackColor = true;
+            this.Team2Win.Visible = false;
+            this.Team2Win.Click += new System.EventHandler(this.Team2Win_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 861);
+            this.Controls.Add(this.Team2Win);
+            this.Controls.Add(this.Team2Label);
+            this.Controls.Add(this.Team1Win);
+            this.Controls.Add(this.Team1Label);
+            this.Controls.Add(this.EditLabel);
+            this.Controls.Add(this.MatchBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -125,11 +207,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-<<<<<<< HEAD
 
-        
-=======
->>>>>>> origin/master
+        }
+
+        private void GenerateLabels(int[][] coordinates, string[] teamNames)
+        {
+            //delete any existing names
+            if(names != null)
+            {
+                for(int i = 0; i < names.Length; i++)
+                {
+                    this.Controls.Remove(names[i]);
+                }
+            }
+            //add new labels
+            names = new System.Windows.Forms.Label[coordinates.Length];
+            for(int i = 0; i < coordinates.Length; i++)
+            {
+                names[i] = new System.Windows.Forms.Label();
+                names[i].AutoSize = true;
+                names[i].Location = new System.Drawing.Point(coordinates[i][0], coordinates[i][1]);
+                names[i].Name = "Label " + i.ToString();
+                names[i].Size = new System.Drawing.Size(35, 13);
+                names[i].TabIndex = i + 4;
+                names[i].Text = teamNames[i];
+                this.Controls.Add(names[i]);
+                names[i].BringToFront();
+            }
         }
 
         #endregion
@@ -143,6 +247,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label[] names;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox MatchBox;
+        private System.Windows.Forms.Label EditLabel;
+        private System.Windows.Forms.Label Team1Label;
+        private System.Windows.Forms.Button Team1Win;
+        private System.Windows.Forms.Label Team2Label;
+        private System.Windows.Forms.Button Team2Win;
     }
 }
 

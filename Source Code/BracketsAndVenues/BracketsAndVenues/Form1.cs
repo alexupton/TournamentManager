@@ -15,21 +15,22 @@ namespace BracketsAndVenues
     {
         private Bracket mainBracket { get; set; }
         private string FilePath { get; set; }
-<<<<<<< HEAD
         private int[][] NameLocs { get; set; }
-=======
         private List<int[]> TextPositions { get; set; }
->>>>>>> origin/master
+        private Team[] SelectedTeam { get; set; }
+        private int MatchIndex { get; set; }
         public Form1()
         {
             InitializeComponent();
             mainBracket = new Bracket();
             TextPositions = new List<int[]>();
+            SelectedTeam = new Team[2];
         }
 
         //load in team file. right now it is plain text. this is subject to change
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mainBracket = new Bracket();
             OpenFileDialog load = new OpenFileDialog();
             load.Filter = "Text Files (*.txt) | *.txt";
             load.ShowDialog();
@@ -40,17 +41,13 @@ namespace BracketsAndVenues
                 StringBuilder sb = new StringBuilder(sr.ReadToEnd());
                 sr.Close();
 
-
-<<<<<<< HEAD
+                string[] lines;
             List<Team> teams = new List<Team>();
             try
             {
-=======
                 //parse the file
-                string[] lines = sb.ToString().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                lines = sb.ToString().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
-                List<Team> teams = new List<Team>();
->>>>>>> origin/master
                 for (int i = 0; i < lines.Length; i++)
                 {
                     string[] line = lines[i].Split(',');
@@ -59,7 +56,6 @@ namespace BracketsAndVenues
                     int wins = Int32.Parse(line[2]);
                     teams.Add(new Team(name, seed, wins));
                 }
-<<<<<<< HEAD
             }
             catch
             {
@@ -72,15 +68,16 @@ namespace BracketsAndVenues
             bool successfulRead = false;
             switch(lines.Length)
             {
-                case 4: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\4_team_bracket.png"; break;
+                case 4: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\4_team_bracket.png"; sr = new StreamReader(Environment.CurrentDirectory + "\\4_locations.txt"); break;
                 default:
                     {
                         pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\32_team_bracket.png";
                         sr = new StreamReader(Environment.CurrentDirectory + "\\32_locations.txt");
-                        successfulRead = true;
                         break;
-                    }
+                    }        
         }
+                
+                        successfulRead = true;
             if (successfulRead)
             {
                 NameLocs = new int[mainBracket.teams.Count][];
@@ -103,11 +100,11 @@ namespace BracketsAndVenues
                 MessageBox.Show("Read error");
                 return;
             }
-=======
+
                 mainBracket = new Bracket(teams);
                 saveToolStripMenuItem.Enabled = true;
                 FilePath = load.FileName;
-                int numberOfTeams = lines.Length;
+                int numberOfTeams = mainBracket.teams.Count;
 
                 //load the appropriate bracket image based on number of teams
                 switch (numberOfTeams)
@@ -132,6 +129,7 @@ namespace BracketsAndVenues
                     default: positionPath = Environment.CurrentDirectory + "\\32_locations.txt"; break;
                 }
 
+                
                 //parse the def file
                 sr = new StreamReader(positionPath);
                 sb = new StringBuilder(sr.ReadToEnd());
@@ -140,28 +138,43 @@ namespace BracketsAndVenues
                 {
                     string[] halfLine = posLines[i].Split(':');
                     string[] coords = halfLine[1].Split(',');
-                    TextPositions.Add(new int[] { Int32.Parse(coords[0]) + 147, Int32.Parse(coords[1]) + 45 });
-                }
-
-                //draw names on bracket
-                Graphics g = Graphics.FromImage(pictureBox1.Image);
-                using (Font myFont = new Font("Arial", 14))
-                {
-                    for (int i = 0; i < TextPositions.Count; i++)
+                    if (i < NameLocs.Length)
                     {
-                        if (mainBracket.teams.Count > i )
-                        {
-                            g.DrawString(mainBracket.teams.ElementAt(i).Name, myFont, Brushes.Black, new Point(TextPositions.ElementAt(i)[0], TextPositions.ElementAt(i)[1]));
-                        }
+                        NameLocs[i] = new int[] { Int32.Parse(coords[0]) + 100, Int32.Parse(coords[1]) + 25 };
                     }
                 }
+
+                string[] tNames = new string[mainBracket.teams.Count];
+                for (int i = 0; i < mainBracket.teams.Count; i++ )
+                {
+                    tNames[i] = mainBracket.teams.ElementAt(i).Name;
+                }
+                //initial label generation
+                this.GenerateLabels(NameLocs, tNames);
+
+                //TODO: SET BRACKET FOR ADDITIONAL WINS
+
+                //populate editbox with matches
+                MatchBox.Items.Clear();
+                int count = 1;
+                foreach(Team[] t in mainBracket.matchups)
+                {
+                    MatchBox.Items.Add("Match " + count);
+                    count++;
+                }
+                MatchBox.Visible = true;
+                MatchBox.Enabled = true;
+                EditLabel.Visible = true;
+
+                
+
+
             }
 
             
 
             
 
->>>>>>> origin/master
 
 
 
@@ -255,6 +268,78 @@ namespace BracketsAndVenues
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Save(true);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Team1Win.Enabled = false;
+            Team2Win.Enabled = true;
+
+            names[MatchIndex * 2].BackColor = Color.LightGreen;
+            names[MatchIndex * 2 + 1].BackColor = Color.PaleVioletRed;
+        }
+
+        private void label2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MatchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Team1Win.Visible = true;
+            Team2Win.Visible = true;
+            Team1Win.Enabled = true;
+            Team2Win.Enabled = true;
+
+            Team1Label.Visible = true;
+            Team2Label.Visible = true;
+
+            if(SelectedTeam != null)
+            {
+                names[MatchIndex * 2].BackColor = default(Color);
+                names[MatchIndex * 2 + 1].BackColor = default(Color);
+            }
+
+            SelectedTeam = mainBracket.matchups.ElementAt(MatchBox.SelectedIndex);
+            MatchIndex = MatchBox.SelectedIndex;
+
+            int nameLabelIndex = MatchBox.SelectedIndex * 2;
+
+            names[nameLabelIndex].BackColor = Color.Aqua;
+            names[nameLabelIndex + 1].BackColor = Color.Aqua;
+
+            
+        }
+
+        private void Team2Win_Click(object sender, EventArgs e)
+        {
+            Team2Win.Enabled = false;
+            Team1Win.Enabled = true;
         }
 
 
