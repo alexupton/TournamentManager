@@ -15,6 +15,7 @@ namespace BracketsAndVenues
     {
         private Bracket mainBracket { get; set; }
         private string FilePath { get; set; }
+        private int[][] NameLocs { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -34,23 +35,60 @@ namespace BracketsAndVenues
             string[] lines = sb.ToString().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             List<Team> teams = new List<Team>();
-            for(int i = 0; i < lines.Length; i++)
+            try
             {
-                string[] line = lines[i].Split(',');
-                string name = line[0];
-                int seed = Int32.Parse(line[1]);
-                int wins = Int32.Parse(line[2]);
-                teams.Add(new Team(name, seed, wins));
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] line = lines[i].Split(',');
+                    string name = line[0];
+                    int seed = Int32.Parse(line[1]);
+                    int wins = Int32.Parse(line[2]);
+                    teams.Add(new Team(name, seed, wins));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid text format.", "We done goofed");
+                return;
             }
             mainBracket = new Bracket(teams);
             saveToolStripMenuItem.Enabled = true;
             FilePath = load.FileName;
-
+            bool successfulRead = false;
             switch(lines.Length)
             {
                 case 4: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\4_team_bracket.png"; break;
-                default: pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\8_team_bracket.png"; break;
+                default:
+                    {
+                        pictureBox1.ImageLocation = Environment.CurrentDirectory + "\\32_team_bracket.png";
+                        sr = new StreamReader(Environment.CurrentDirectory + "\\32_locations.txt");
+                        successfulRead = true;
+                        break;
+                    }
         }
+            if (successfulRead)
+            {
+                NameLocs = new int[mainBracket.teams.Count][];
+                sb = new StringBuilder(sr.ReadToEnd());
+                lines = sb.ToString().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                for(int i = 0; i < mainBracket.teams.Count; i++)
+                {
+                    string[] halfLines = lines[i].Split(':');
+                    string[] coords = halfLines[1].Split(',');
+                    NameLocs[i] = new int[] { Int32.Parse(coords[0]) + pictureBox1.Location.X, Int32.Parse(coords[1]) + pictureBox1.Location.Y };
+                }
+                string[] names = new string[mainBracket.teams.Count];
+                for(int i = 0; i < names.Length; i++)
+                {
+                    names[i] = mainBracket.teams.ElementAt(i).Name;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Read error");
+                return;
+            }
+
 
 
         }
@@ -127,5 +165,7 @@ namespace BracketsAndVenues
         {
             Save(true);
         }
+
+
     }
 }
