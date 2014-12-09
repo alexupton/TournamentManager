@@ -1,5 +1,7 @@
 Team1,3,0
+
 Team2,2,0
+
 Team3,1,0
+
 Team4,6,0
-Team5555,4,0

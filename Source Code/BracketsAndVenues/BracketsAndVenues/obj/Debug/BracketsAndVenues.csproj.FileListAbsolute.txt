@@ -8,3 +8,12 @@ D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues
 D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.pdb
 D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.exe
 D:\GitProjects\TournamentManager\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.pdb
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe.config
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.exe
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.pdb
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.exe
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\bin\Debug\BracketsAndVenues.pdb
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.csprojResolveAssemblyReference.cache
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.Form1.resources
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.Properties.Resources.resources
+C:\Users\alexander.upton\Desktop\TournamentManager-master\Source Code\BracketsAndVenues\BracketsAndVenues\obj\Debug\BracketsAndVenues.csproj.GenerateResource.Cache

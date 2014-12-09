@@ -1,4 +1,0 @@
-Team1,0,4
-Team2,1,0
-Team3,2,0
-Team4,3,0
