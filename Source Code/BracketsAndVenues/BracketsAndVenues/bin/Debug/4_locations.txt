@@ -1,10 +1,17 @@
 Position 1a: 192, 146
+
 Position 1b: 192, 260
-Position 2a: 192, 370
+
+Position 2a: 192, 358
+
 Position 2b: 192, 486
-Position 3a: 403, 596
-Position 3b: 403, 712
 Position 4a: 481, 207
+
 Position 4b: 481, 431
+
 Winner: 720, 317
+
+Position 3a: 403, 596
+
+Position 3b: 403, 712
 3rd Place: 686, 657

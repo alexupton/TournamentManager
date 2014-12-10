@@ -24,5 +24,11 @@ namespace BracketsAndVenues
             Wins++;
         }
 
+        public void Unwin()
+        {
+            if (Wins > 0)
+                Wins--;
+        }
+
     }
 }

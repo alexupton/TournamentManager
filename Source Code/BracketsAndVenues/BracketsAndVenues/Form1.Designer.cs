@@ -202,6 +202,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.Text = "Bracket Manager v0.1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -221,19 +222,43 @@
                 }
             }
             //add new labels
-            names = new System.Windows.Forms.Label[coordinates.Length];
-            for(int i = 0; i < coordinates.Length; i++)
+
+            int roundSize = mainBracket.teams.Count * 2;
+            for (int i = 0; i < rounds.Length; i++)
             {
-                names[i] = new System.Windows.Forms.Label();
-                names[i].AutoSize = true;
-                names[i].Location = new System.Drawing.Point(coordinates[i][0], coordinates[i][1]);
-                names[i].Name = "Label " + i.ToString();
-                names[i].Size = new System.Drawing.Size(35, 13);
-                names[i].TabIndex = i + 4;
-                names[i].Text = teamNames[i];
-                this.Controls.Add(names[i]);
-                names[i].BringToFront();
+                rounds[i] = new System.Windows.Forms.Label[roundSize / 2 ];
+                roundSize /= 2;
             }
+
+            int labelsIndex = 0;
+            for (int i = 0; i < rounds.Length; i++ )
+            {
+                for(int j = 0; j < rounds[i].Length; j++)
+                {
+                    rounds[i][j] = new System.Windows.Forms.Label();
+                    rounds[i][j].AutoSize = true;
+                    rounds[i][j].Location = new System.Drawing.Point(coordinates[j][0], coordinates[j][1]);
+                    rounds[i][j].Name = "Label " + i.ToString();
+                    rounds[i][j].Size = new System.Drawing.Size(35, 13);
+                    rounds[i][j].TabIndex = i + 4;
+                    if (j < teamNames.Length)
+                    {
+                        rounds[i][j].Text = teamNames[j];
+                    }
+                    else
+                    {
+                        rounds[i][j].Text = "";
+                    }
+                }
+            }
+                for (int i = 0; i < rounds.Length; i++)
+                {
+                    for (int j = 0; j < rounds[i].Length; j++)
+                    {
+                        this.Controls.Add(rounds[i][j]);
+                        rounds[i][j].BringToFront();
+                    }
+                }
         }
 
         #endregion
