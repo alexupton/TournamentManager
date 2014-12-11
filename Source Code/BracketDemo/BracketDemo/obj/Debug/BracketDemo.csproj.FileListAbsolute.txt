@@ -1,0 +1,18 @@
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\bin\Debug\BracketDemo.exe.config
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\bin\Debug\BracketDemo.exe
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\bin\Debug\BracketDemo.pdb
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.Form1.resources
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.Properties.Resources.resources
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.csproj.GenerateResource.Cache
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.exe
+c:\users\theboss\documents\visual studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.pdb
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\bin\Debug\BracketDemo.exe.config
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.exe
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.pdb
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\bin\Debug\BracketDemo.exe
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\bin\Debug\BracketDemo.pdb
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.csprojResolveAssemblyReference.cache
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.Form1.resources
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.Properties.Resources.resources
+D:\GitProjects\TournamentManager\Source Code\BracketDemo\BracketDemo\obj\Debug\BracketDemo.csproj.GenerateResource.Cache
+C:\Users\TheBoss\Documents\Visual Studio 2013\Projects\BracketDemo\BracketDemo\obj\Debug\BracketDemo.csprojResolveAssemblyReference.cache

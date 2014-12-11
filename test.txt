@@ -1,4 +1,8 @@
-Team1,3,0
-Team2,2,0
-Team3,1,0
-Team4,6,0
+DC,1,1
+Marvel,2,0
+Goku,3,0
+Superman,4,0
+Beethoven,5,0
+Mozart,6,0
+Me,7,0
+Chuck Norris,8,0

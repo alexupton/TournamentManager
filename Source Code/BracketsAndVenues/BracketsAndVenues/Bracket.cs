@@ -37,6 +37,12 @@ namespace BracketsAndVenues
             IsDirty = false;
         }
 
+        public void UpdateBracket(Team updatedTeam, int teamIndex)
+        {
+            teams.RemoveAt(teamIndex);
+            teams.Insert(teamIndex, updatedTeam);
+        }
+
 
 
 

@@ -230,7 +230,6 @@
                 roundSize /= 2;
             }
 
-            int labelsIndex = 0;
             for (int i = 0; i < rounds.Length; i++ )
             {
                 for(int j = 0; j < rounds[i].Length; j++)
@@ -241,24 +240,24 @@
                     rounds[i][j].Name = "Label " + i.ToString();
                     rounds[i][j].Size = new System.Drawing.Size(35, 13);
                     rounds[i][j].TabIndex = i + 4;
-                    if (j < teamNames.Length)
+                    if (j < teamNames.Length && i == 0)
                     {
                         rounds[i][j].Text = teamNames[j];
                     }
                     else
                     {
-                        rounds[i][j].Text = "";
+                        rounds[i][j].Text = "AssAssAss";
                     }
                 }
             }
-                for (int i = 0; i < rounds.Length; i++)
+            for (int i = 0; i < rounds.Length; i++)
+            {
+                for (int j = 0; j < rounds[i].Length; j++)
                 {
-                    for (int j = 0; j < rounds[i].Length; j++)
-                    {
-                        this.Controls.Add(rounds[i][j]);
-                        rounds[i][j].BringToFront();
-                    }
+                    this.Controls.Add(rounds[i][j]);
+                    rounds[i][j].BringToFront();
                 }
+            }
         }
 
         #endregion

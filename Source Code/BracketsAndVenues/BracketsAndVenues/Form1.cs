@@ -321,6 +321,10 @@ namespace BracketsAndVenues
             mainBracket.matchups.ElementAt(MatchIndex)[1].Unwin();
             mainBracket.matchups.ElementAt(MatchIndex)[0].Win();
 
+            //update bracket
+            mainBracket.UpdateBracket(mainBracket.matchups.ElementAt(MatchIndex)[0], MatchIndex *2);
+            mainBracket.UpdateBracket(mainBracket.matchups.ElementAt(MatchIndex)[1], MatchIndex * 2 + 1);
+
 
                 ResetBracket();
 
@@ -409,8 +413,8 @@ namespace BracketsAndVenues
             {
                 for(int i = 1; i <= t.Wins; i++)
                 {
-                    rounds[i][i / 2].Text = t.Name;
-                    rounds[i][i / 2].BringToFront();
+                    rounds[i][(int)i / 2].Text = t.Name;
+                    rounds[i][(int)i / 2].BringToFront();   
                 }
             }
             MatchBox.Visible = true;
